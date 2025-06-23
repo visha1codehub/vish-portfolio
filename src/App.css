@@ -1,0 +1,216 @@
+/* utils.css (updated with new animations) */
+@import "tailwindcss";
+
+:root {
+  --color-darkBg: #0d1117;
+  --color-darkPrimary: #2f81f7;
+  --color-darkSecondary: #58a6ff;
+  --color-darkMuted: #8b949e;
+  --color-darkBorder: #30363d;
+  --color-lightBg: #f9fafb;
+  --color-lightPrimary: #1e40af;
+  --color-lightSecondary: #111827;
+  --color-lightMuted: #6b7280;
+
+  background-color: var(--color-lightBg);
+  color: var(--color-lightSecondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root.dark {
+  background-color: var(--color-darkBg);
+  color: #c9d1d9;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+
+.navbar {
+  background-color: rgba(var(--color-lightBg), 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(209, 213, 219, 0.1);
+}
+
+.dark .navbar {
+  background-color: rgba(var(--color-darkBg), 0.95);
+  border-bottom: 1px solid var(--color-darkBorder);
+}
+
+.btn-primary {
+  background-color: var(--color-lightPrimary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.dark .btn-primary {
+  background-color: var(--color-darkPrimary);
+  border-color: var(--color-darkBorder);
+}
+
+.btn-primary:hover {
+  background-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2);
+}
+
+.dark .btn-primary:hover {
+  background-color: #1f6feb;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+}
+
+.hero {
+  background-image: linear-gradient(to right, var(--color-lightPrimary), #2563eb);
+}
+
+.dark .hero {
+  background-image: linear-gradient(to right, var(--color-darkBg), #1c252f);
+}
+
+.link {
+  color: var(--color-lightPrimary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dark .link {
+  color: var(--color-darkSecondary);
+}
+
+.link:hover {
+  color: #1e3a8a;
+  text-decoration: underline;
+}
+
+.dark .link:hover {
+  color: #79c0ff;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .card {
+  background-color: #161b22;
+  border-color: var(--color-darkBorder);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.input {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-lightSecondary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark .input {
+  background-color: #0d1117;
+  border-color: var(--color-darkBorder);
+  color: #c9d1d9;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-lightPrimary);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2);
+}
+
+.dark .input:focus {
+  border-color: var(--color-darkSecondary);
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+}
+
+.text-muted {
+  color: var(--color-lightMuted);
+}
+
+.dark .text-muted {
+  color: var(--color-darkMuted);
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 1s ease-out 0.3s forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.8s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Scroll-triggered animation utility */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
