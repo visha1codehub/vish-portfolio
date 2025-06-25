@@ -1,5 +1,5 @@
 // src/pages/Services.jsx
-import useIntersectionObserver  from "../hooks/useIntersectionObserver";
+import useIntersectionObserver  from "../hooks/useScrollAnimations";
 import { FaCode, FaPaintBrush, FaBusinessTime } from "react-icons/fa";
 import { Link } from "react-router-dom";
 

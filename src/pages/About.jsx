@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import useIntersectionObserver from "../hooks/useScrollAnimations";
 import vishalProfile from "../assets/images/vishal_profile.png"; // Adjust path based on file location
 
 const skills = [
@@ -80,8 +80,11 @@ const About = () => {
         </div>
       </section>
 
+      {/* Horizontal Line */}
+      <hr className="border-t border-gray-200 dark:border-gray-700 max-w-7xl mx-auto" />
+
       {/* Skills Section */}
-      <section data-animate ref={skillsRef} className="p-16  bg-gray-50 dark:bg-[#161b22]">
+      <section data-animate ref={skillsRef} className="py-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-slide-up">
           My Skills
         </h2>
@@ -98,6 +101,9 @@ const About = () => {
           ))}
         </div>
       </section>
+
+      {/* Horizontal Line */}
+      <hr className="border-t border-gray-200 dark:border-gray-700 max-w-7xl mx-auto" />
 
       {/* Experience Section */}
       <section data-animate ref={experienceRef} className="py-16">
@@ -119,8 +125,11 @@ const About = () => {
         </div>
       </section>
 
+      {/* Horizontal Line */}
+      <hr className="border-t border-gray-200 dark:border-gray-700 max-w-7xl mx-auto" />
+
       {/* Education Section */}
-      <section data-animate ref={educationRef} className="py-16 bg-gray-50 dark:bg-[#161b22]">
+      <section data-animate ref={educationRef} className="py-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-slide-up">
           Education & Certifications
         </h2>
@@ -137,6 +146,9 @@ const About = () => {
           ))}
         </div>
       </section>
+
+      {/* Horizontal Line */}
+      <hr className="border-t border-gray-200 dark:border-gray-700 max-w-7xl mx-auto" />
 
       {/* CTA Section */}
       <section data-animate ref={ctaRef} className="py-16 text-center">

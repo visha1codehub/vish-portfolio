@@ -1,7 +1,7 @@
 // src/pages/Contact.jsx
 import { Link } from "react-router-dom";
 import ContactForm from "../components/ContactForm";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import useIntersectionObserver from "../hooks/useScrollAnimations";
 
 const Contact = () => {
   const contactRef = useIntersectionObserver();

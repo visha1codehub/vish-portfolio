@@ -1,6 +1,6 @@
 // src/pages/Blog.jsx
 import { Link } from "react-router-dom";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import useIntersectionObserver from "../hooks/useScrollAnimations";
 
 const blogPosts = [
   {

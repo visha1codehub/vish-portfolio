@@ -11,63 +11,75 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 dark:bg-[var(--color-darkBg)] text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="section bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+      <div className="container">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand Section */}
-          <div className="text-center md:text-left">
-            <h2 className="text-2xl font-bold mb-4 animate-fade-in">Vish Gupta</h2>
-            <p className="text-muted text-sm">
-              Passionate developer crafting innovative web solutions.
+          <div className="text-center md:text-left" data-animate>
+            <h2 className="font-display text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Vish Gupta
+            </h2>
+            <p className="text-muted text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+              Passionate developer crafting innovative web solutions with modern technologies and best practices.
             </p>
           </div>
 
           {/* Contact Section */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold mb-4 animate-slide-up">Contact</h3>
-            <div className="space-y-2">
+          <div className="text-center" data-animate>
+            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+              Get In Touch
+            </h3>
+            <div className="space-y-3">
               <a
-                href="mailto:your.email@example.com"
-                className="flex items-center justify-center space-x-2 text-muted hover:text-[var(--color-lightPrimary)] dark:hover:text-[var(--color-darkSecondary)] transition-colors"
+                href="mailto:vishalgupta10.dev@gmail.com"
+                className="link flex items-center justify-center gap-2 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
-                <HiOutlineMail className="w-5 h-5" />
+                <HiOutlineMail className="w-4 h-4 flex-shrink-0" />
                 <span>vishalgupta10.dev@gmail.com</span>
               </a>
               <a
-                href="tel:+1234567890"
-                className="flex items-center justify-center space-x-2 text-muted hover:text-[var(--color-lightPrimary)] dark:hover:text-[var(--color-darkSecondary)] transition-colors"
+                href="tel:+919695077615"
+                className="link flex items-center justify-center gap-2 text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               >
-                <FiPhone className="w-5 h-5" />
+                <FiPhone className="w-4 h-4 flex-shrink-0" />
                 <span>+91 9695077615</span>
               </a>
             </div>
           </div>
 
           {/* Social Links Section */}
-          <div className="text-center md:text-right">
-            <h3 className="text-lg font-semibold mb-4 animate-slide-up">Connect</h3>
-            <div className="flex justify-center md:justify-end space-x-4">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted hover:text-[var(--color-lightPrimary)] dark:hover:text-[var(--color-darkSecondary)] transition-transform hover:scale-110"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                  aria-label={link.name}
-                >
-                  <link.icon className="w-6 h-6" />
-                </a>
-              ))}
+          <div className="text-center md:text-right" data-animate>
+            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+              Connect With Me
+            </h3>
+            <div className="flex justify-center md:justify-end gap-3">
+              {socialLinks.map((link, index) => {
+                const IconComponent = link.icon;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className=" p-2 w-10 h-10 flex items-center justify-center rounded-lg hover:scale-105 transition-transform duration-200"
+                    aria-label={`Visit my ${link.name} profile`}
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <IconComponent className="w-6 h-6" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-12 border-t border-[var(--color-darkBorder)] pt-6 text-center">
-          <p className="text-sm text-muted animate-fade-in">
-            © {new Date().getFullYear()} Vish Gupta. All rights reserved.
+        {/* Divider */}
+        <div className="divider my-8"></div>
+
+        {/* Copyright Section */}
+        <div className="text-center" data-animate>
+          <p className="text-muted text-sm">
+            © {new Date().getFullYear()} Vish Gupta. All rights reserved. Built with React & Tailwind CSS.
           </p>
         </div>
       </div>

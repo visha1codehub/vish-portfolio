@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import useIntersectionObserver from "../hooks/useScrollAnimations";
 
 const projects = [
   {

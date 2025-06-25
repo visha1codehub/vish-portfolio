@@ -1,4 +1,3 @@
-
 // src/components/DarkModeToggle.jsx
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
@@ -10,14 +9,33 @@ const DarkModeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-gray-100 dark:bg-[var(--color-darkBorder)] text-[var(--color-lightPrimary)] dark:text-[var(--color-darkSecondary)] hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[var(--color-lightPrimary)] dark:focus:ring-[var(--color-darkSecondary)] animate-pulse"
+      className="btn btn-secondary"
+      style={{
+        width: '2.5rem',
+        height: '2.5rem',
+        padding: '0',
+        borderRadius: '0.75rem',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden'
+      }}
       aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDarkMode ? (
-        <FaSun className="w-5 h-5" />
-      ) : (
-        <FaMoon className="w-5 h-5" />
-      )}
+      <span
+        style={{
+          color: isDarkMode ? 'var(--color-darkSecondary)' : 'var(--color-lightPrimary)',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          transform: 'scale(1)',
+        }}
+      >
+        {isDarkMode ? (
+          <FaSun className="w-4 h-4" />
+        ) : (
+          <FaMoon className="w-4 h-4" />
+        )}
+      </span>
     </button>
   );
 };
