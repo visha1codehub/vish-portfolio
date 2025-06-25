@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import useIntersectionObserver from "../hooks/useScrollAnimations";
-import vishalProfile from "../assets/images/vishal_profile.png"; // Adjust path based on file location
+import useScrollAnimations from "../hooks/useScrollAnimations";
+import vishalProfile from "../assets/images/vishal_profile.png";
 
 const skills = [
   { name: "React", icon: "⚛️" },
@@ -40,130 +40,166 @@ const education = [
 ];
 
 const About = () => {
-  const bioRef = useIntersectionObserver();
-  const skillsRef = useIntersectionObserver();
-  const experienceRef = useIntersectionObserver();
-  const educationRef = useIntersectionObserver();
-  const ctaRef = useIntersectionObserver();
+  useScrollAnimations();
 
   return (
-    <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Bio Section */}
-      <section data-animate ref={bioRef}>
-        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-6 animate-slide-up">
-          About Me
-        </h1>
-        <p className="text-lg text-muted text-center max-w-3xl mx-auto mb-12 animate-fade-in">
-          I'm a passionate developer with a knack for building user-friendly, high-performance web applications. With a focus on modern technologies and clean design, I strive to create impactful solutions that make a difference.
-        </p>
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="flex justify-center">
-            <img
-              src={vishalProfile}
-              alt="Vishal"
-              className="w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover shadow-lg border-4 border-[var(--color-lightPrimary)] dark:border-[var(--color-darkSecondary)] animate-scale-in"
-              loading="lazy"
-            />
-          </div>
-          <div className="flex flex-col justify-center">
-            <h2 className="text-2xl font-semibold mb-4 animate-slide-up">My Journey</h2>
-            <p className="text-muted mb-4 animate-fade-in">
-              With over 3 years of experience in web development, I specialize in crafting seamless user experiences using React, Node.js, and Tailwind CSS. My journey began with a curiosity for coding, which evolved into a passion for solving real-world problems through technology. Whether it's building scalable applications or designing intuitive interfaces, I’m driven by a commitment to excellence.
-            </p>
-            <Link
-              to="/contact"
-              className="btn-primary inline-block px-6 py-2 w-max rounded-full hover:scale-105 transition-transform animate-pulse"
-            >
+    <div className="overflow-hidden">
+      {/* Hero/Bio Section */}
+      <section className="hero section min-h-screen flex items-center justify-center relative" data-animate>
+        <div className="container text-center animate-fade-in-up">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl mb-6">
+            About <span className="text-accent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Vish Gupta</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-muted mb-12 max-w-3xl mx-auto leading-relaxed">
+            I'm a passionate developer with a knack for building user-friendly, high-performance web applications using modern technologies like React, Node.js, and Tailwind CSS.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-scale">
+            <Link to="/contact" className="btn btn-primary text-lg px-8 py-4 animate-gentle-bounce">
               Connect with Me
+            </Link>
+            <Link to="/projects" className="btn btn-secondary text-lg px-8 py-4">
+              View My Work
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Horizontal Line */}
-      <hr className="border-t border-gray-200 dark:border-gray-700 max-w-7xl mx-auto" />
+      <div className="divider"></div>
+
+      {/* Journey Section */}
+      <section className="section" data-animate>
+        <div className="container">
+          <h2 className="font-display text-4xl sm:text-5xl text-center mb-12">My Journey</h2>
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div className="flex justify-center" data-animate="fade-scale">
+              <img
+                src={vishalProfile}
+                alt="Vishal Gupta"
+                className="w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover border-4 border-[var(--color-lightPrimary)] dark:border-[var(--color-darkSecondary)] shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex flex-col justify-center" data-animate="slide-right">
+              <p className="text-lg text-muted mb-6 leading-relaxed">
+                With over 3 years of experience in web development, I specialize in crafting seamless user experiences. My journey began with a curiosity for coding, which evolved into a passion for solving real-world problems through technology.
+              </p>
+              <p className="text-lg text-muted mb-8 leading-relaxed">
+                Whether it's building scalable applications or designing intuitive interfaces, I’m driven by a commitment to excellence and continuous learning to stay at the forefront of web development trends.
+              </p>
+              <Link to="/contact" className="link text-lg font-medium">
+                Let’s Collaborate →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider"></div>
 
       {/* Skills Section */}
-      <section data-animate ref={skillsRef} className="py-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-slide-up">
-          My Skills
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="card p-6 text-center animate-scale-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <span className="text-3xl mb-4 block">{skill.icon}</span>
-              <h3 className="text-lg font-semibold">{skill.name}</h3>
+      <section className="section" data-animate>
+        <div className="container">
+          <h2 className="font-display text-4xl sm:text-5xl text-center mb-16">My Skills</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 max-w-6xl mx-auto">
+            {skills.map((skill, index) => (
+              <div
+                key={skill.name}
+                className="card text-center"
+                data-animate="fade-scale"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <span className="text-4xl mb-4 block animate-gentle-bounce">{skill.icon}</span>
+                <h3 className="font-medium text-sm">{skill.name}</h3>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <p className="text-muted mb-6">
+              Always exploring new technologies to deliver cutting-edge solutions.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {["Full-Stack Development", "API Design", "Database Architecture", "DevOps"].map((tag, index) => (
+                <span key={index} className="tag">
+                  {tag}
+                </span>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* Horizontal Line */}
-      <hr className="border-t border-gray-200 dark:border-gray-700 max-w-7xl mx-auto" />
+      <div className="divider"></div>
 
       {/* Experience Section */}
-      <section data-animate ref={experienceRef} className="py-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-slide-up">
-          Experience
-        </h2>
-        <div className="space-y-8 max-w-3xl mx-auto">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="card p-6 animate-scale-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <h3 className="text-xl font-semibold">{exp.title}</h3>
-              <p className="text-muted font-medium">{exp.company} | {exp.period}</p>
-              <p className="text-muted mt-2">{exp.description}</p>
-            </div>
-          ))}
+      <section className="section" data-animate>
+        <div className="container">
+          <h2 className="font-display text-4xl sm:text-5xl text-center mb-16">Experience</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="card p-8"
+                data-animate="fade-scale"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <h3 className="font-display text-xl mb-2">{exp.title}</h3>
+                <p className="text-muted font-medium mb-2">{exp.company} | {exp.period}</p>
+                <p className="text-muted leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Horizontal Line */}
-      <hr className="border-t border-gray-200 dark:border-gray-700 max-w-7xl mx-auto" />
+      <div className="divider"></div>
 
       {/* Education Section */}
-      <section data-animate ref={educationRef} className="py-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-slide-up">
-          Education & Certifications
-        </h2>
-        <div className="space-y-8 max-w-3xl mx-auto">
-          {education.map((edu, index) => (
-            <div
-              key={index}
-              className="card p-6 animate-scale-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <h3 className="text-xl font-semibold">{edu.degree}</h3>
-              <p className="text-muted font-medium">{edu.institution} | {edu.period}</p>
-            </div>
-          ))}
+      <section className="section" data-animate>
+        <div className="container">
+          <h2 className="font-display text-4xl sm:text-5xl text-center mb-16">Education & Certifications</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {education.map((edu, index) => (
+              <div
+                key={index}
+                className="card p-8"
+                data-animate="fade-scale"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <h3 className="font-display text-xl mb-2">{edu.degree}</h3>
+                <p className="text-muted font-medium">{edu.institution} | {edu.period}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Horizontal Line */}
-      <hr className="border-t border-gray-200 dark:border-gray-700 max-w-7xl mx-auto" />
+      <div className="divider"></div>
 
       {/* CTA Section */}
-      <section data-animate ref={ctaRef} className="py-16 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 animate-slide-up">
-          Let’s Work Together
-        </h2>
-        <p className="text-lg text-muted max-w-2xl mx-auto mb-8 animate-fade-in">
-          Interested in collaborating on a project or learning more about my work? Reach out to discuss your ideas!
-        </p>
-        <Link
-          to="/contact"
-          className="btn-primary px-8 py-3 text-lg inline-block rounded-full hover:scale-105 transition-transform animate-pulse"
-        >
-          Get in Touch
-        </Link>
+      <section className="section" data-animate>
+        <div className="container">
+          <div className="card text-center p-16 max-w-4xl mx-auto relative overflow-hidden" data-animate="fade-scale">
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 to-purple-600"></div>
+            </div>
+            <div className="relative z-10">
+              <h2 className="font-display text-3xl sm:text-4xl mb-6">
+                Let’s Work Together
+              </h2>
+              <p className="text-lg text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
+                Interested in collaborating on a project or learning more about my work? Reach out to discuss your ideas!
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-6">
+                <Link to="/contact" className="btn btn-primary text-lg px-8 py-4 animate-gentle-bounce">
+                  Get in Touch
+                </Link>
+                <Link to="/projects" className="btn btn-secondary text-lg px-8 py-4">
+                  Explore Projects
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
