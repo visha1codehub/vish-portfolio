@@ -1,4 +1,3 @@
-// src/components/ContactForm.jsx
 import { useState } from "react";
 
 const ContactForm = () => {
@@ -17,7 +16,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
       <div className="mb-6">
         <label htmlFor="name" className="block text-sm font-medium mb-2 text-muted">
           Name
@@ -65,12 +64,14 @@ const ContactForm = () => {
       </div>
       <button
         type="submit"
-        className="btn-primary w-full py-3 text-lg rounded-full hover:scale-105 transition-transform"
+        className="btn btn-primary w-full py-3 text-lg animate-gentle-bounce"
       >
         Send Message
       </button>
       {status && (
-        <p className="mt-4 text-center text-green-500 animate-fade-in">{status}</p>
+        <p className="mt-4 text-center text-[var(--color-lightPrimary)] dark:text-[var(--color-darkPrimary)] animate-fade-in">
+          {status}
+        </p>
       )}
     </form>
   );

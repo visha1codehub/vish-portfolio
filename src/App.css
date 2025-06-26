@@ -502,7 +502,7 @@ body {
   color: var(--color-darkMuted);
 }
 
-.footer .social-link {
+ .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -515,20 +515,20 @@ body {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dark .footer .social-link {
+.dark  .social-link {
   background-color: var(--color-darkCard);
   border-color: var(--color-darkBorder);
   color: var(--color-darkPrimary);
 }
 
-.footer .social-link:hover {
+ .social-link:hover {
   background-color: var(--color-lightPrimary);
   border-color: var(--color-lightPrimary);
   color: var(--color-lightBg);
   transform: translateY(-2px);
 }
 
-.dark .footer .social-link:hover {
+.dark .social-link:hover {
   background-color: var(--color-darkPrimary);
   border-color: var(--color-darkPrimary);
   color: var(--color-darkBg);
@@ -585,12 +585,90 @@ body {
     font-size: 0.8125rem;
   }
 
-  .footer .social-link {
+   .social-link {
     width: 2.25rem;
     height: 2.25rem;
   }
 
   .footer .contact-link {
+    font-size: 0.8125rem;
+  }
+}
+
+
+/* 404 Page Styling */
+.not-found-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 10rem;
+  line-height: 1;
+  color: var(--color-lightPrimary);
+  opacity: 0.1;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.dark .not-found-heading {
+  color: var(--color-darkPrimary);
+}
+
+@media (max-width: 768px) {
+  .not-found-heading {
+    font-size: 4rem;
+    top: 5%;
+  }
+}
+
+/* Hire Me Button */
+.hire-me-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.70rem 1.5rem; /* Adjusted for text-sm */
+  font-weight: 500;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #e11d48; /* Reddish for light theme */
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  margin-left: 1rem; /* ml-4 */
+}
+
+.hire-me-btn:hover {
+  background-color: #be123c; /* Darker red for hover */
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-large);
+}
+
+.hire-me-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-medium);
+}
+
+.dark .hire-me-btn {
+  background-color: #cd124e; /* Bluish for dark theme */
+  color: white;
+}
+
+.dark .hire-me-btn:hover {
+  background-color: #990c39; /* #8b5cf6 for dark theme hover */
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-large);
+}
+
+@media (max-width: 768px) {
+  .hire-me-btn {
+    padding: 0.5rem 1.25rem;
     font-size: 0.8125rem;
   }
 }

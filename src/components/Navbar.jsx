@@ -59,13 +59,13 @@ const Navbar = () => {
             ))}
 
             {/* CTA Button */}
-            <Link
-              to="/contact"
-              className="btn btn-primary ml-4 text-sm px-6 py-2 animate-gentle-bounce"
-              style={{ animationDelay: '0.8s' }}
-            >
-              Hire Me
-            </Link>
+<Link
+  to="/contact"
+  className="hire-me-btn animate-gentle-bounce"
+  style={{ animationDelay: '0.8s' }}
+>
+  Hire Me
+</Link>
 
             <div className="ml-4">
               <DarkModeToggle />

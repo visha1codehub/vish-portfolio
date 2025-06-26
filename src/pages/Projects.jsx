@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
-import useIntersectionObserver from "../hooks/useScrollAnimations";
+import useScrollAnimations from "../hooks/useScrollAnimations";
 
 const projects = [
   {
@@ -46,7 +47,7 @@ const projects = [
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
-  const projectsRef = useIntersectionObserver();
+  useScrollAnimations();
 
   // Generate unique tags dynamically
   const uniqueTags = ["All", ...new Set(projects.flatMap((project) => project.tags))];
@@ -57,60 +58,57 @@ const Projects = () => {
     : projects.filter((project) => project.tags.includes(filter));
 
   return (
-    <section
-      className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      data-animate
-      ref={projectsRef}
-    >
-      <h1 className="text-4xl sm:text-5xl font-bold text-center mb-6 animate-slide-up">
-        My Projects
-      </h1>
-      <p className="text-lg text-muted text-center max-w-3xl mx-auto mb-12 animate-fade-in">
-        Explore a collection of my work, showcasing innovative web applications built with modern technologies.
-      </p>
-      {/* Filter Buttons */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        {uniqueTags.map((tag, index) => (
-          <button
-            key={index}
-            onClick={() => setFilter(tag)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-              filter === tag
-                ? "bg-[var(--color-lightPrimary)] text-white dark:bg-[var(--color-darkPrimary)] dark:text-[var(--color-darkBg)]"
-                : "bg-gray-100 dark:bg-[var(--color-darkBorder)] text-muted hover:bg-gray-200 dark:hover:bg-gray-700"
-            }`}
-            style={{ animationDelay: `${index * 0.1}s` }}
-            data-animate
-          >
-            {tag}
-          </button>
-        ))}
-      </div>
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {filteredProjects.length > 0 ? (
-          filteredProjects.map((project, index) => (
-            <div
-              key={project.id}
-              style={{ animationDelayanimationDelay: `${index * 0.2}s` }}
+    <section className="section" data-animate>
+      <div className="container">
+        <h1 className="font-display text-4xl sm:text-5xl text-center mb-6 animate-fade-in-up">
+          My Projects
+        </h1>
+        <p className="text-lg text-muted text-center max-w-3xl mx-auto mb-12 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          Explore a collection of my work, showcasing innovative web applications built with modern technologies.
+        </p>
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {uniqueTags.map((tag, index) => (
+            <button
+              key={index}
+              onClick={() => setFilter(tag)}
+              className={`btn ${filter === tag ? 'btn-primary' : 'btn-secondary'} text-sm px-4 py-2`}
+              data-animate="fade-in-scale"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <ProjectCard {...project} />
-            </div>
-          ))
-        ) : (
-          <p className="text-center text-muted col-span-full">
-            No projects found for this filter.
-          </p>
-        )}
-      </div>
-      {/* CTA */}
-      <div className="text-center mt-12 animate-fade-in">
-        <a
-          href="/contact"
-          className="btn-primary px-8 py-3 text-lg inline-block rounded-full hover:scale-105 transition-transform"
-        >
-          Let’s Build Something Together
-        </a>
+              {tag}
+            </button>
+          ))}
+        </div>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project, index) => (
+              <div
+                key={project.id}
+                data-animate="fade-scale"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <ProjectCard {...project} />
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-muted col-span-full">
+              No projects found for this filter.
+            </p>
+          )}
+        </div>
+        {/* Divider */}
+        <div className="divider my-12"></div>
+        {/* CTA */}
+        <div className="text-center" data-animate="fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <Link
+            to="/contact"
+            className="btn btn-primary text-lg px-8 py-4 animate-gentle-bounce"
+          >
+            Let’s Build Something Together
+          </Link>
+        </div>
       </div>
     </section>
   );

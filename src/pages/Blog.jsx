@@ -1,6 +1,5 @@
-// src/pages/Blog.jsx
 import { Link } from "react-router-dom";
-import useIntersectionObserver from "../hooks/useScrollAnimations";
+import useScrollAnimations from "../hooks/useScrollAnimations";
 
 const blogPosts = [
   {
@@ -27,52 +26,72 @@ const blogPosts = [
     readTime: "6 min read",
     slug: "/blog/scalable-nodejs-apis",
   },
+  {
+    id: "post4",
+    title: "Building Robust APIs with Django REST Framework",
+    excerpt:
+      "Dive into creating scalable, secure, and maintainable REST APIs using Django REST Framework, with tips on authentication and optimization.",
+    date: "May 30, 2025",
+    readTime: "7 min read",
+    slug: "/blog/django-rest-framework-apis",
+  },
+  {
+    id: "post5",
+    title: "Django for Rapid Web Development",
+    excerpt:
+      "Explore how Django’s ORM, admin panel, and ecosystem enable rapid development of secure, full-stack web applications.",
+    date: "May 25, 2025",
+    readTime: "5 min read",
+    slug: "/blog/django-rapid-web-development",
+  },
 ];
 
 const Blog = () => {
-  const blogRef = useIntersectionObserver();
+  useScrollAnimations();
 
   return (
-    <section
-      className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      data-animate
-      ref={blogRef}
-    >
-      <h1 className="text-4xl sm:text-5xl font-bold text-center mb-6 animate-slide-up">
-        Blog
-      </h1>
-      <p className="text-lg text-muted text-center max-w-lg mx-auto mb-12 animate-fade-in">
-        Explore my latest insights on web development, technology trends, and best practices.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {blogPosts.map((post, index) => (
-          <div
-            key={post.id}
-            className="card p-6 hover:-translate-y-2 transition-transform duration-300 animate-scale-in"
-            style={{ animationDelay: `${index * 0.2}s` }}
-          >
-            <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-            <p className="text-muted text-sm mb-2">{post.excerpt}</p>
-            <div className="flex justify-between text-muted text-xs mb-4">
-              <span>{post.date}</span>
-              <span>{post.readTime}</span>
-            </div>
-            <Link
-              to={post.slug}
-              className="link font-medium hover:underline"
+    <section className="section" data-animate>
+      <div className="container">
+        <h1 className="font-display text-4xl sm:text-5xl text-center mb-6 animate-fade-in-up">
+          Blog
+        </h1>
+        <p className="text-lg text-muted text-center max-w-lg mx-auto mb-12 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          Explore my latest insights on web development, technology trends, and best practices, including my expertise in Django and API development.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {blogPosts.map((post, index) => (
+            <div
+              key={post.id}
+              className="card"
+              data-animate="fade-scale"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
-              Read More
-            </Link>
-          </div>
-        ))}
-      </div>
-      <div className="text-center mt-12 animate-fade-in">
-        <Link
-          to="/contact"
-          className="btn-primary px-8 py-3 text-lg inline-block rounded-full hover:scale-105 transition-transform animate-pulse"
-        >
-          Suggest a Blog Topic
-        </Link>
+              <div className="p-8">
+                <h2 className="font-display text-xl mb-4">{post.title}</h2>
+                <p className="text-muted text-sm mb-4 leading-relaxed">{post.excerpt}</p>
+                <div className="flex justify-between text-muted text-xs mb-6">
+                  <span>{post.date}</span>
+                  <span>{post.readTime}</span>
+                </div>
+                <Link
+                  to={post.slug}
+                  className="link font-medium"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="divider my-12"></div>
+        <div className="text-center" data-animate="fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <Link
+            to="/contact"
+            className="btn btn-primary text-lg px-8 py-4 animate-gentle-bounce"
+          >
+            Suggest a Blog Topic
+          </Link>
+        </div>
       </div>
     </section>
   );
