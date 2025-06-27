@@ -3,39 +3,57 @@ import useScrollAnimations from "../hooks/useScrollAnimations";
 import vishalProfile from "../assets/images/vishal_profile.png";
 
 const skills = [
-  { name: "React", icon: "⚛️" },
+  { name: "C++", icon: "🔩" },
+  { name: "Python", icon: "🐍" },
   { name: "JavaScript", icon: "📜" },
-  { name: "Tailwind CSS", icon: "🎨" },
-  { name: "Node.js", icon: "🟢" },
+  { name: "SQL", icon: "🗄️" },
+  { name: "Bash", icon: "🖥️" },
+  { name: "Django", icon: "🧩" },
+  { name: "Django REST Framework", icon: "🔗" },
+  { name: "ReactJS", icon: "⚛️" },
+  { name: "NodeJS", icon: "🟢" },
   { name: "Git", icon: "📚" },
-  { name: "TypeScript", icon: "🔷" },
+  { name: "Docker", icon: "🐳" },
+  { name: "Linux", icon: "🐧" },
 ];
 
 const experiences = [
   {
-    title: "Frontend Developer",
-    company: "Tech Corp",
-    period: "2023 - Present",
-    description: "Developed responsive web applications using React and Tailwind CSS, improving user engagement by 30%.",
-  },
-  {
-    title: "Junior Developer",
-    company: "Startup Inc.",
-    period: "2021 - 2023",
-    description: "Contributed to full-stack projects with Node.js and MongoDB, streamlining internal workflows.",
+    title: "Software Engineer Intern",
+    company: "Prutor@IITK",
+    period: "October 2024 - Present",
+    description: "Engineered 5+ scalable web applications using Django, driving a 20% increase in user engagement and a 15% improvement in customer satisfaction. Integrated 10+ third-party APIs using Django REST Framework, enhancing application features and automating 30% of manual workflows.",
   },
 ];
 
 const education = [
   {
-    degree: "B.Sc. in Computer Science",
-    institution: "University of Example",
-    period: "2017 - 2021",
+    degree: "B.Tech in Computer Science and Engineering",
+    institution: "KCC Institute of Technology and Management",
+    period: "2021 - 2025",
+    details: "CGPA: 7.5 (as of 7th semester)",
   },
   {
-    degree: "Certified React Developer",
-    institution: "Online Academy",
-    period: "2022",
+    degree: "12th Grade",
+    institution: "Gyan Peethika Senior Secondary School",
+    period: "2019 - 2020",
+    details: "Percentage: 88%",
+  },
+  {
+    degree: "10th Grade",
+    institution: "Swami Sahajanand Inter College",
+    period: "2017 - 2018",
+    details: "Percentage: 88.33%",
+  },
+  {
+    degree: "Django Certification",
+    institution: "Udemy",
+    period: "2024",
+  },
+  {
+    degree: "REST API with Django REST Framework",
+    institution: "Udemy",
+    period: "2024",
   },
 ];
 
@@ -48,10 +66,10 @@ const About = () => {
       <section className="hero section min-h-screen flex items-center justify-center relative" data-animate>
         <div className="container text-center animate-fade-in-up">
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl mb-6">
-            About <span className="text-accent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Vish Gupta</span>
+            About <span className="text-accent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Vishal Gupta</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted mb-12 max-w-3xl mx-auto leading-relaxed">
-            I'm a passionate developer with a knack for building user-friendly, high-performance web applications using modern technologies like React, Node.js, and Tailwind CSS.
+            I'm a B.Tech Computer Science student and Software Engineer Intern at Prutor@IITK, specializing in building scalable web applications with ReactJS, Django, and Node.js.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-scale">
             <Link to="/contact" className="btn btn-primary text-lg px-8 py-4 animate-gentle-bounce">
@@ -81,10 +99,10 @@ const About = () => {
             </div>
             <div className="flex flex-col justify-center" data-animate="slide-right">
               <p className="text-lg text-muted mb-6 leading-relaxed">
-                With over 3 years of experience in web development, I specialize in crafting seamless user experiences. My journey began with a curiosity for coding, which evolved into a passion for solving real-world problems through technology.
+                As a passionate developer pursuing a B.Tech in Computer Science, I’ve honed my skills in full-stack development through hands-on projects and an internship at Prutor@IITK. My work focuses on creating user-focused, scalable web applications using technologies like ReactJS, Django, and Docker.
               </p>
               <p className="text-lg text-muted mb-8 leading-relaxed">
-                Whether it's building scalable applications or designing intuitive interfaces, I’m driven by a commitment to excellence and continuous learning to stay at the forefront of web development trends.
+                With over 500 LeetCode problems solved and 6 stars on HackerRank, I thrive on solving complex problems. Certified in Django and REST API development, I’m committed to continuous learning and delivering innovative solutions.
               </p>
               <Link to="/contact" className="link text-lg font-medium">
                 Let’s Collaborate →
@@ -118,7 +136,7 @@ const About = () => {
               Always exploring new technologies to deliver cutting-edge solutions.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {["Full-Stack Development", "API Design", "Database Architecture", "DevOps"].map((tag, index) => (
+              {["Full-Stack Development", "API Integration", "Database Management", "DevOps"].map((tag, index) => (
                 <span key={index} className="tag">
                   {tag}
                 </span>
@@ -167,6 +185,7 @@ const About = () => {
               >
                 <h3 className="font-display text-xl mb-2">{edu.degree}</h3>
                 <p className="text-muted font-medium">{edu.institution} | {edu.period}</p>
+                {edu.details && <p className="text-muted leading-relaxed">{edu.details}</p>}
               </div>
             ))}
           </div>
@@ -180,14 +199,14 @@ const About = () => {
         <div className="container">
           <div className="card text-center p-16 max-w-4xl mx-auto relative overflow-hidden" data-animate="fade-scale">
             <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 to-purple-600"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600 to-purple-600"></div>
             </div>
             <div className="relative z-10">
               <h2 className="font-display text-3xl sm:text-4xl mb-6">
                 Let’s Work Together
               </h2>
               <p className="text-lg text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
-                Interested in collaborating on a project or learning more about my work? Reach out to discuss your ideas!
+                Interested in collaborating on innovative web applications or exploring my projects? Reach out to discuss your ideas!
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6">
                 <Link to="/contact" className="btn btn-primary text-lg px-8 py-4 animate-gentle-bounce">

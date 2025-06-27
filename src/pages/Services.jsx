@@ -1,25 +1,25 @@
 import { Link } from "react-router-dom";
-import { FaCode, FaPaintBrush, FaBusinessTime } from "react-icons/fa";
+import { FaCode, FaServer, FaPlug } from "react-icons/fa";
 import useScrollAnimations from "../hooks/useScrollAnimations";
 
 const services = [
   {
-    name: "Web Development",
+    name: "Full-Stack Web Development",
     description:
-      "Build custom, high-performance web applications using modern frameworks like React, Next.js, and Node.js, tailored to your business needs.",
+      "Build scalable, high-performance web applications using ReactJS, Django, Node.js, and Docker, tailored to deliver seamless user experiences and robust backend functionality.",
     icon: FaCode,
   },
   {
-    name: "UI/UX Design",
+    name: "API Integration & Development",
     description:
-      "Craft intuitive, visually appealing user interfaces with Tailwind CSS and Figma, ensuring seamless user experiences across devices.",
-    icon: FaPaintBrush,
+      "Design and integrate third-party APIs using Django REST Framework, enhancing application features and automating workflows for efficiency.",
+    icon: FaPlug,
   },
   {
-    name: "Consulting",
+    name: "Backend Development & DevOps",
     description:
-      "Provide expert guidance on tech strategies, architecture, and scalability to drive your business forward with innovative solutions.",
-    icon: FaBusinessTime,
+      "Develop secure, scalable backend systems with Django, Node.js, and SQL, and leverage Docker and Linux for streamlined deployment and server management.",
+    icon: FaServer,
   },
 ];
 
@@ -33,7 +33,7 @@ const Services = () => {
           My Services
         </h1>
         <p className="text-lg text-muted text-center max-w-3xl mx-auto mb-12 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Discover the range of professional services I offer to help you achieve your digital goals, from development to strategic consulting.
+          Discover my professional services, from crafting full-stack web applications to integrating APIs and optimizing backend systems for your business needs.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (

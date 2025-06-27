@@ -1,50 +1,6 @@
 import { Link } from "react-router-dom";
 import useScrollAnimations from "../hooks/useScrollAnimations";
-
-const blogPosts = [
-  {
-    id: "post1",
-    title: "Mastering React Hooks: A Deep Dive",
-    excerpt: "Explore advanced techniques for using React Hooks to build cleaner, more efficient components.",
-    date: "June 15, 2025",
-    readTime: "5 min read",
-    slug: "/blog/mastering-react-hooks",
-  },
-  {
-    id: "post2",
-    title: "Tailwind CSS v4: What's New?",
-    excerpt: "Discover the latest features in Tailwind CSS v4 and how they enhance your development workflow.",
-    date: "June 10, 2025",
-    readTime: "4 min read",
-    slug: "/blog/tailwind-css-v4",
-  },
-  {
-    id: "post3",
-    title: "Building Scalable Node.js APIs",
-    excerpt: "Learn best practices for designing and deploying robust APIs with Node.js and Express.",
-    date: "June 5, 2025",
-    readTime: "6 min read",
-    slug: "/blog/scalable-nodejs-apis",
-  },
-  {
-    id: "post4",
-    title: "Building Robust APIs with Django REST Framework",
-    excerpt:
-      "Dive into creating scalable, secure, and maintainable REST APIs using Django REST Framework, with tips on authentication and optimization.",
-    date: "May 30, 2025",
-    readTime: "7 min read",
-    slug: "/blog/django-rest-framework-apis",
-  },
-  {
-    id: "post5",
-    title: "Django for Rapid Web Development",
-    excerpt:
-      "Explore how Django’s ORM, admin panel, and ecosystem enable rapid development of secure, full-stack web applications.",
-    date: "May 25, 2025",
-    readTime: "5 min read",
-    slug: "/blog/django-rapid-web-development",
-  },
-];
+import { blogPosts } from "../data/blogPosts";
 
 const Blog = () => {
   useScrollAnimations();
@@ -56,7 +12,7 @@ const Blog = () => {
           Blog
         </h1>
         <p className="text-lg text-muted text-center max-w-lg mx-auto mb-12 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Explore my latest insights on web development, technology trends, and best practices, including my expertise in Django and API development.
+          Explore my insights on web development, showcasing projects like ShellSpace, VishChat, and more, with a focus on ReactJS, Django, and API integration.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {blogPosts.map((post, index) => (

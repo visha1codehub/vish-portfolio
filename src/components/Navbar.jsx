@@ -34,7 +34,7 @@ const Navbar = () => {
             to="/"
             className="font-display text-2xl font-bold text-accent hover:text-opacity-80 transition-all duration-200 animate-fade-in-scale"
           >
-            Vish Gupta
+            Vishal Gupta
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import ContactForm from "../components/ContactForm";
 import useScrollAnimations from "../hooks/useScrollAnimations";
 
@@ -35,7 +36,7 @@ const Contact = () => {
               <HiOutlineMail className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/vishal-gupta-466b7921b"
               target="_blank"
               rel="noopener noreferrer"
               className="social-link"
@@ -44,6 +45,28 @@ const Contact = () => {
               style={{ animationDelay: "0.9s" }}
             >
               <FaLinkedin className="w-6 h-6" />
+            </a>
+            <a
+              href="https://github.com/visha1codehub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="GitHub"
+              data-animate="fade-in-scale"
+              style={{ animationDelay: "1.0s" }}
+            >
+              <FaGithub className="w-6 h-6" />
+            </a>
+            <a
+              href="https://x.com/VishalG59469500"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="X"
+              data-animate="fade-in-scale"
+              style={{ animationDelay: "1.1s" }}
+            >
+              <FaXTwitter className="w-6 h-6" />
             </a>
           </div>
         </div>

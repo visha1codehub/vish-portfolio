@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiPhone } from "react-icons/fi";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import useScrollAnimations from "../hooks/useScrollAnimations";
 
 const Footer = () => {
   useScrollAnimations();
 
   const socialLinks = [
-    { name: "GitHub", href: "https://github.com", icon: FaGithub },
-    { name: "LinkedIn", href: "https://linkedin.com", icon: FaLinkedin },
-    { name: "Twitter", href: "https://twitter.com", icon: FaTwitter },
+    { name: "GitHub", href: "https://github.com/vishalcodehub", icon: FaGithub },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/vishal-gupta-466b7921b", icon: FaLinkedin },
+    { name: "X", href: "https://x.com/VishalG59469500", icon: FaXTwitter },
+    { name: "Instagram", href: "https://www.instagram.com/vish__10___", icon: FaInstagram }, // Added Instagram
   ];
 
   return (
@@ -19,9 +21,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand Section */}
           <div className="text-center md:text-left" data-animate="fade-in-up">
-            <h2 className="footer-heading">Vish Gupta</h2>
+            <h2 className="footer-heading">Vishal Gupta</h2>
             <p className="footer-text max-w-xs mx-auto md:mx-0">
-              Passionate developer crafting innovative web solutions with modern technologies and best practices.
+              B.Tech Computer Science student and Software Engineer Intern at Prutor@IITK, building scalable web applications with ReactJS, Django, and Node.js.
             </p>
           </div>
 
@@ -77,7 +79,7 @@ const Footer = () => {
         {/* Copyright Section */}
         <div className="text-center" data-animate="fade-in-up" style={{ animationDelay: "0.6s" }}>
           <p className="footer-text">
-            © {new Date().getFullYear()} Vish Gupta. All rights reserved. Built with React & Tailwind CSS.
+            © {new Date().getFullYear()} Vishal Gupta. All rights reserved. Built with React & Tailwind CSS.
           </p>
         </div>
       </div>

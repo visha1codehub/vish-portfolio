@@ -1,51 +1,62 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../context/ThemeContext";
 import ProjectCard from "../components/ProjectCard";
 import useScrollAnimations from "../hooks/useScrollAnimations";
+import vishchatImage from "../assets/images/vishchat.png";
+import shellspaceImageLight from "../assets/images/shellspace-light.svg";
+import shellspaceImageDark from "../assets/images/shellspace-dark.svg";
+import medicalBlogpostImageLight from "../assets/images/medical-blogpost-light.png";
+import medicalBlogpostImageDark from "../assets/images/medical-blogpost-dark.png";
+import vishPortfolioImageLight from "../assets/images/vish-portfolio-light.png";
+import vishPortfolioImageDark from "../assets/images/vish-portfolio-dark.png";
 
 const projects = [
   {
     id: "project1",
-    title: "E-Commerce Platform",
+    title: "ShellSpace",
     description:
-      "A full-stack e-commerce web app with React, Tailwind CSS, and Firebase for real-time product management and secure payments.",
-    image: "/images/project1.jpg",
-    tags: ["React", "Tailwind CSS", "Firebase", "Stripe"],
-    demoLink: "https://example.com",
-    codeLink: "https://github.com",
+      "Web-based Linux command simulator with terminal emulation using Xterm.js and Node-pty, Docker containers per session, and real-time Socket.IO communication. Styled with Tailwind CSS v4.",
+    image: shellspaceImageDark,
+    tags: ["ReactJS", "NodeJS", "Docker", "Socket.IO", "Xterm.js", "Node-pty", "Tailwind CSS"],
+    demoLink: "https://shellspace.onrender.com",
+    codeLink: "https://github.com/visha1codehub/shellspace",
   },
   {
     id: "project2",
-    title: "Task Management Dashboard",
+    title: "Personal Portfolio",
     description:
-      "A responsive dashboard for task tracking, built with Next.js, TypeScript, and MongoDB, featuring drag-and-drop functionality.",
-    image: "/images/project2.jpg",
-    tags: ["Next.js", "TypeScript", "MongoDB", "React-DnD"],
-    demoLink: "https://example.com",
-    codeLink: "https://github.com",
+      "Responsive portfolio built with React and Tailwind CSS, deployed on Render. Features project filtering, dark/light themes, and scroll animations.",
+    image:  vishPortfolioImageDark,
+    tags: ["React", "Vite", "Tailwind CSS", "Render"],
+    demoLink: "https://vish10-portfolio.onrender.com",
+    codeLink: "https://github.com/visha1codehub/vish-portfolio", // Placeholder, update with actual GitHub link
   },
   {
     id: "project3",
-    title: "Portfolio Website",
+    title: "VishChat App",
     description:
-      "A modern portfolio showcasing my work, built with Vite, React, and Tailwind CSS v4, with a GitHub-inspired dark mode.",
-    image: "/images/project3.jpg",
-    tags: ["Vite", "React", "Tailwind CSS", "Animation"],
-    demoLink: "https://example.com",
-    codeLink: "https://github.com",
+      "Real-time chat application using Django Channels and WebSockets with user authentication, messaging, and group chat functionality.",
+    image: vishchatImage,
+    tags: ["Django", "WebSockets", "HTML", "CSS", "JavaScript"],
+    codeLink: "https://github.com/visha1codehub/VishChat_App",
   },
   {
     id: "project4",
-    title: "Blog Platform",
+    title: "Medical Blogpost",
     description:
-      "A dynamic blog platform with content management using Contentful, styled with Tailwind CSS, and deployed on Vercel.",
-    image: "/images/project4.jpg",
-    tags: ["React", "Contentful", "Tailwind CSS", "Vercel"],
-    demoLink: "https://example.com",
+      "Blogging platform for doctors to post blogs and patients to read and book appointments, integrated with Google Calendar API and Google Auth.",
+    image: medicalBlogpostImageDark,
+    tags: ["Django", "Google Calendar API", "Google Auth", "HTML", "CSS", "JavaScript"],
+    codeLink: "https://github.com/visha1codehub/Medical-Blogpost-Project",
   },
 ];
 
 const Projects = () => {
+  const { isDarkMode } = useContext(ThemeContext);
+  projects[0].image = isDarkMode ? shellspaceImageDark : shellspaceImageLight;
+  projects[1].image = isDarkMode ? vishPortfolioImageDark : vishPortfolioImageLight;
+  projects[3].image = isDarkMode ? medicalBlogpostImageDark : medicalBlogpostImageLight;
   const [filter, setFilter] = useState("All");
   useScrollAnimations();
 
@@ -106,7 +117,7 @@ const Projects = () => {
             to="/contact"
             className="btn btn-primary text-lg px-8 py-4 animate-gentle-bounce"
           >
-            Let’s Build Something Together
+            Let's Build Something Together
           </Link>
         </div>
       </div>
