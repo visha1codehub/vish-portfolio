@@ -1,4 +1,9 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser"; // Import EmailJS
+
+emailjs.init({
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+});
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -10,9 +15,31 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setStatus(""), 3000);
+
+    // EmailJS send function
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setStatus("Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+          setTimeout(() => setStatus(""), 3000);
+        },
+        (error) => {
+          console.log(error.text);
+          setStatus("Failed to send message. Please try again.");
+          setTimeout(() => setStatus(""), 3000);
+        }
+      );
   };
 
   return (
@@ -69,7 +96,13 @@ const ContactForm = () => {
         Send Message
       </button>
       {status && (
-        <p className="mt-4 text-center text-[var(--color-lightPrimary)] dark:text-[var(--color-darkPrimary)] animate-fade-in">
+        <p
+          className={`mt-4 text-center ${
+            status.includes("Failed")
+              ? "text-red-500"
+              : "text-[var(--color-lightPrimary)] dark:text-[var(--color-darkPrimary)]"
+          } animate-fade-in`}
+        >
           {status}
         </p>
       )}
