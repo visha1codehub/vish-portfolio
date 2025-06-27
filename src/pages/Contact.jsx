@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
