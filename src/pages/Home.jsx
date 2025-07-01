@@ -59,7 +59,7 @@ const Home = () => {
     <div className="overflow-hidden">
       {/* Hero Section */}
       <section className="hero section min-h-screen flex items-center justify-center relative">
-        <div className="container text-center animate-fade-in-up" data-animate>
+        <div className="container text-center" data-animate>
           <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl mb-6">
             Hi, I'm{" "}
             <span className="text-accent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -69,7 +69,7 @@ const Home = () => {
           <p className="text-xl sm:text-2xl text-muted mb-12 max-w-3xl mx-auto leading-relaxed">
             A Full-Stack Developer and B.Tech student specializing in ReactJS, Django, and Node.js, currently interning at Prutor@IITK, building scalable web solutions.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-scale">
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link to="/contact" className="btn btn-primary text-lg px-8 py-4 animate-gentle-bounce">
               Get in Touch
             </Link>

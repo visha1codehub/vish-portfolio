@@ -30,7 +30,7 @@ const projects = [
     image:  vishPortfolioImageDark,
     tags: ["React", "Vite", "Tailwind CSS", "Render"],
     demoLink: "https://vish10-portfolio.onrender.com",
-    codeLink: "https://github.com/visha1codehub/vish-portfolio", // Placeholder, update with actual GitHub link
+    codeLink: "https://github.com/visha1codehub/vish-portfolio",
   },
   {
     id: "project3",
